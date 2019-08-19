@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import { Switch, Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AuthServices from './services/auth.services'
+import Signup from './components/Signup'
+import Login from './components/Login'
+
+class App extends Component {
+	constructor() {
+		super()
+		this.state = { loggedInUser: null }
+		this.authServices = new AuthServices()
+	}
+
+	setTheUser = user => {
+		this.setState({ loggedInUser: user })
+		console.log('Un componente ha cambiado el usuario en App:', this.state.loggedInUser)
+	}
+
+	fetchUser = () => {
+		if (this.state.loggedInUser === null) {
+			this.authServices
+				.loggedin()
+				.then(response => this.setState({ loggedInUser: response }))
+				.catch(x => this.setState({ loggedInUser: false }))
+		}
+	}
+
+	render() {
+		this.fetchUser()
+
+		return (
+			<div className='App'>
+				<Switch>
+					<Route path='/signup' exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
+					<Route path='/login' exact render={match => <Login {...match} setUser={this.setTheUser} />} />
+				</Switch>
+			</div>
+		)
+	}
 }
 
-export default App;
+export default App
