@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import './App.css'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 
 import AuthServices from './services/auth.services'
 import Signup from './components/Signup'
 import Login from './components/Login'
+import Scout from './components/Scout'
+import Player from './components/Player'
+import PlayersList from './components/Players-list'
 
 class App extends Component {
 	constructor() {
@@ -32,9 +35,23 @@ class App extends Component {
 
 		return (
 			<div className='App'>
+				<Link to='/profile'>Perfil</Link>
+				<Link to='/login'>Login</Link>
+				<Link to='/signup'>Signup</Link>
+				<Link to='/players-list'>Deportistas</Link>
 				<Switch>
 					<Route path='/signup' exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
+					<Route
+						path='/profile'
+						exact
+						render={() => {
+							if (this.state.loggedInUser.data.role === 'SCOUT') {
+								return <Scout user={this.state.loggedInUser.data} />
+							} else if (this.state.loggedInUser.data.role === 'PLAYER') return <Player user={this.state.loggedInUser.data} />
+						}}
+					/>
 					<Route path='/login' exact render={match => <Login {...match} setUser={this.setTheUser} />} />
+					<Route path='/players-list' exact component={PlayersList} />
 				</Switch>
 			</div>
 		)

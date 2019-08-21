@@ -6,7 +6,8 @@ class Signup extends Component {
 		super(props)
 		this.state = {
 			username: '',
-			password: ''
+			password: '',
+			role: 'PLAYER'
 		}
 		this.authServices = new AuthServices()
 	}
@@ -18,13 +19,14 @@ class Signup extends Component {
 
 	handleFormSubmit = e => {
 		e.preventDefault()
-		const { username, password } = this.state
+		const { username, password, role } = this.state
 		this.authServices
-			.signup(username, password)
+			.signup(username, password, role)
 			.then(theNewUser => {
 				this.setState({
 					username: '',
-					password: ''
+					password: '',
+					role: ''
 				})
 				this.props.setUser(theNewUser)
 				this.props.history.push('/')
@@ -37,8 +39,16 @@ class Signup extends Component {
 			<>
 				<h1>Signup</h1>
 				<form onSubmit={this.handleFormSubmit}>
-					Usuario: <input name='username' type='text' value={this.state.username} onChange={this.handleInputChange} /> <br />
-					Contraseña: <input name='password' type='password' value={this.state.password} onChange={this.handleInputChange} />{' '}
+					<label htmlFor='username'>Usuario:</label>
+					<input name='username' type='text' id='username' value={this.state.username} onChange={this.handleInputChange} /> <br />
+					<label htmlFor='password'>Contraseña:</label>
+					<input name='password' type='password' id='password' value={this.state.password} onChange={this.handleInputChange} />
+					<br />
+					<label htmlFor='role'>Rol:</label>
+					<select name='role' id='role' onChange={this.handleInputChange}>
+						<option value='PLAYER'>Deportista</option>
+						<option value='SCOUT'>Ojeador</option>
+					</select>
 					<br />
 					<input type='submit' value='Registrar' />
 				</form>
