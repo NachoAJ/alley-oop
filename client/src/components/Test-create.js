@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import AuthServices from '../services/auth.services'
+import UserServices from '../services/user.services'
 
-class Signup extends Component {
+class TestCreate extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			username: '',
-			password: '',
-			role: 'PLAYER',
-			age: undefined,
-			position: 'BASE'
+			title: '',
+			location: '',
+			date: '',
+			requirements: ''
 		}
-		this.authServices = new AuthServices()
+		this.userServices = new UserServices()
 	}
 
 	handleInputChange = e => {
@@ -21,19 +20,18 @@ class Signup extends Component {
 
 	handleFormSubmit = e => {
 		e.preventDefault()
-		const { username, password, role, age, position } = this.state
-		this.authServices
-			.signup(username, password, role, age, position)
-			.then(theNewUser => {
+		const { title, location, date, requirements } = this.state
+		const id = this.props.user.data._id
+		this.userServices
+			.addTest({ title, location, date, requirements, id })
+			.then(() => {
 				this.setState({
-					username: '',
-					password: '',
-					role: '',
-					position: 'BASE',
-					age: 0
+					title: '',
+					location: '',
+					date: '',
+					requirements: ''
 				})
-				this.props.setUser(theNewUser)
-				this.props.history.push('/')
+				this.props.history.push('/test')
 			})
 			.catch(err => console.log(err.response.data.message))
 	}
@@ -61,4 +59,4 @@ class Signup extends Component {
 	}
 }
 
-export default Signup
+export default TestCreate
