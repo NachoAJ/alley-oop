@@ -7,10 +7,13 @@ const userSchema = new Schema(
 		password: { type: String, required: true },
 		role: {
 			type: String,
-			enum: ['PLAYER', 'SCOUT'],
+			enum: ['PLAYER', 'COACH'],
 			default: 'PLAYER'
 		},
-		videos: []
+		videos: [],
+		tests: [],
+		age: Number,
+		position: String
 	},
 	{ timestamps: true }
 )

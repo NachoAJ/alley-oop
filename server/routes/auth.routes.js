@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt')
 const User = require('../models/User.model')
 
 authRoutes.post('/signup', (req, res, next) => {
-	const { username, password, role } = req.body
+	const { username, password, role, age, position } = req.body
 	console.log(req.body)
 
 	if (!username || !password) {
@@ -36,7 +36,9 @@ authRoutes.post('/signup', (req, res, next) => {
 		const newUser = new User({
 			username: username,
 			password: hashPass,
-			role: role
+			role: role,
+			age: age,
+			position: position
 		})
 
 		newUser.save(err => {

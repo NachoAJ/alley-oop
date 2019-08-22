@@ -10,4 +10,5 @@ export default class Services {
 
 	getPlayers = () => this.service.get('getAllPlayers')
 	handleUpload = theFile => this.service.post('upload', theFile)
+	videoUpload = theVideo => this.service.post('video-upload', theVideo)
 }

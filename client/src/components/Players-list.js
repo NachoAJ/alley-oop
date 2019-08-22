@@ -1,32 +1,21 @@
 import React, { Component } from 'react'
-import Services from '../services/user.services'
+import { Link } from 'react-router-dom'
 
 class PlayersList extends Component {
-	constructor() {
-		super()
-		this.state = { players: [] }
-		this.services = new Services()
-	}
-
-	componentDidMount = () => this.updateList()
-
-	updateList = () => {
-		this.services
-			.getPlayers()
-			.then(response => this.setState({ players: response.data }))
-			.catch(err => console.log('Ha habido un error', err))
+	constructor(props) {
+		super(props)
 	}
 
 	render() {
 		return (
-			<>
-				<h1>Listado de jugadores</h1>
-				<ul>
-					{this.state.players.map(elm => (
-						<li key={elm._id}>{elm.username}</li>
-					))}
-				</ul>
-			</>
+			<div>
+				{this.props.playersInfo.map(elm => (
+					<p key={elm._id}>
+						{elm.username}
+						<Link to={`/players/${elm._id}`}>Detalles</Link>
+					</p>
+				))}
+			</div>
 		)
 	}
 }
