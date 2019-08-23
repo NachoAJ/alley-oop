@@ -16,7 +16,13 @@ router.post('/add-test', (req, res, next) => {
 			tests: { title: req.body.title, date: req.body.date, location: req.body.location, requirements: req.body.requirements }
 		}
 	})
-		.then(() => console.log('Prueba añadida'))
+		.then(user => res.json(user))
+		.catch(err => console.log('Error', err))
+})
+
+router.get('/get-test-id/:id', (req, res, next) => {
+	User.findById(req.params.id)
+		.then(user => res.json(user.tests))
 		.catch(err => console.log('Error', err))
 })
 

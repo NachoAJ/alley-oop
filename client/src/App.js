@@ -79,8 +79,8 @@ class App extends Component {
 					<Route path='/login' exact render={match => <Login {...match} setUser={this.setTheUser} />} />
 					<Route path='/players' exact render={() => <PlayersList playersInfo={this.state.playersInfo} />} />
 					<Route path='/players/:id' render={match => <PlayerDetail {...match} playersInfo={this.state.players} />} />
-					<Route path='/test' exact render={() => <TestList />} />
-					<Route path='/test/create' exact render={() => <TestCreate user={this.state.loggedInUser} />} />
+					<Route path='/test' exact render={() => <TestList user={this.state.loggedInUser} updateState={this.updateState} />} />
+					<Route path='/test/create' exact render={match => <TestCreate {...match} user={this.state.loggedInUser} />} />
 				</Switch>
 			</div>
 		)

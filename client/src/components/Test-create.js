@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UserServices from '../services/user.services'
+import Autocomplete from 'react-google-autocomplete'
 
 class TestCreate extends Component {
 	constructor(props) {
@@ -14,6 +15,7 @@ class TestCreate extends Component {
 	}
 
 	handleInputChange = e => {
+		console.log(e.target.value)
 		const { name, value } = e.target
 		this.setState({ [name]: value })
 	}
@@ -24,7 +26,8 @@ class TestCreate extends Component {
 		const id = this.props.user.data._id
 		this.userServices
 			.addTest({ title, location, date, requirements, id })
-			.then(() => {
+			.then(x => {
+				console.log(x)
 				this.setState({
 					title: '',
 					location: '',
@@ -44,7 +47,20 @@ class TestCreate extends Component {
 					<label htmlFor='title'>Título:</label>
 					<input name='title' type='text' id='title' value={this.state.title} onChange={this.handleInputChange} /> <br />
 					<label htmlFor='location'>Ubicación:</label>
-					<input name='location' type='text' id='location' value={this.state.location} onChange={this.handleInputChange} />
+					<Autocomplete
+						name='location'
+						id='location'
+						style={{
+							width: '100%',
+							height: '40px',
+							paddingLeft: '16px',
+							margin: '2px'
+						}}
+						onPlaceSelected={this.onPlaceSelected}
+						types={['establishment']}
+						onChange={this.handleInputChange}
+					/>
+					{/* <input name='location' type='text' id='location' value={this.state.location} onChange={this.handleInputChange} /> */}
 					<br />
 					<label htmlFor='date'>Fecha:</label>
 					<input name='date' type='date' id='date' value={this.state.date} onChange={this.handleInputChange} />

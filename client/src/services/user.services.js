@@ -12,4 +12,5 @@ export default class Services {
 	handleUpload = theFile => this.service.post('upload', theFile)
 	videoUpload = theVideo => this.service.post('video-upload', theVideo)
 	addTest = theTest => this.service.post('add-test', theTest)
+	getTestById = theId => this.service.get(`get-test-id/${theId}`)
 }
