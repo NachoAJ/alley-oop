@@ -5,6 +5,7 @@ const passport = require('passport')
 const bcrypt = require('bcrypt')
 
 const User = require('../models/User.model')
+const Stats = require('../models/Stats.model')
 
 authRoutes.post('/signup', (req, res, next) => {
 	const { username, password, role, age, position } = req.body

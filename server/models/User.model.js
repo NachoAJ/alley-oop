@@ -13,7 +13,8 @@ const userSchema = new Schema(
 		videos: [],
 		tests: [],
 		age: Number,
-		position: String
+		position: String,
+		stats: {}
 	},
 	{ timestamps: true }
 )

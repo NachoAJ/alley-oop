@@ -24,10 +24,29 @@ class TestCreate extends Component {
 		e.preventDefault()
 		const { title, location, date, requirements } = this.state
 		const id = this.props.user.data._id
+
+		this.userServices
+			.getLocation(location)
+			.then(response => {
+				const latlng = response.data
+				this.userServices
+					.addTest({ title, location, date, requirements, id, latlng })
+					.then(x => {
+						this.setState({
+							title: '',
+							location: '',
+							date: '',
+							requirements: ''
+						})
+						this.props.history.push('/test')
+					})
+					.catch(err => console.log(err.response.data.message))
+			})
+			.catch(err => console.log('Ha habido un error', err))
+
 		this.userServices
 			.addTest({ title, location, date, requirements, id })
 			.then(x => {
-				console.log(x)
 				this.setState({
 					title: '',
 					location: '',
@@ -47,7 +66,7 @@ class TestCreate extends Component {
 					<label htmlFor='title'>Título:</label>
 					<input name='title' type='text' id='title' value={this.state.title} onChange={this.handleInputChange} /> <br />
 					<label htmlFor='location'>Ubicación:</label>
-					<Autocomplete
+					{/* <Autocomplete
 						name='location'
 						id='location'
 						style={{
@@ -59,8 +78,8 @@ class TestCreate extends Component {
 						onPlaceSelected={this.onPlaceSelected}
 						types={['establishment']}
 						onChange={this.handleInputChange}
-					/>
-					{/* <input name='location' type='text' id='location' value={this.state.location} onChange={this.handleInputChange} /> */}
+					/> */}
+					<input name='location' type='text' id='location' value={this.state.location} onChange={this.handleInputChange} />
 					<br />
 					<label htmlFor='date'>Fecha:</label>
 					<input name='date' type='date' id='date' value={this.state.date} onChange={this.handleInputChange} />

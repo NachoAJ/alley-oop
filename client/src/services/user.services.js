@@ -13,4 +13,5 @@ export default class Services {
 	videoUpload = theVideo => this.service.post('video-upload', theVideo)
 	addTest = theTest => this.service.post('add-test', theTest)
 	getTestById = theId => this.service.get(`get-test-id/${theId}`)
+	getLocation = theLocation => this.service.get(`get-location/${theLocation}`)
 }

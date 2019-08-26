@@ -14,9 +14,6 @@ class PlayersList extends Component {
 		return (
 			<>
 				<select name='position' id='position' onChange={this.handleOnChange}>
-					<option value='' disabled defaultValue>
-						Posición
-					</option>
 					<option value='BASE'>Base</option>
 					<option value='ESCOLTA'>Escolta</option>
 					<option value='ALERO'>Alero</option>

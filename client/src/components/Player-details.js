@@ -17,7 +17,6 @@ class Player extends Component {
 	}
 
 	render() {
-		console.log(this.state.player.username)
 		return (
 			<div className='container'>
 				<h1>{this.state.player.username}</h1>

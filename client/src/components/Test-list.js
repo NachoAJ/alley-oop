@@ -24,24 +24,27 @@ class TestList extends Component {
 	}
 
 	render() {
-		return (
-			<div>
-				<h3>Pruebas de selección</h3>
-				<Link to='/test/create'>Añadir +</Link>
-				{this.state.tests &&
-					this.state.tests.map((elm, idx) => {
-						return (
-							<>
-								<MapContainer />
-								<p>{elm.title}</p>
-								<p>{elm.location}</p>
-								<p>{elm.date}</p>
-								<p>{elm.requirements}</p>
-							</>
-						)
-					})}
-			</div>
-		)
+		if (this.props.user.data.role === 'COACH') {
+			return (
+				<div>
+					<h3>Pruebas de selección</h3>
+					<Link to='/test/create'>Añadir +</Link>
+					{this.state.tests &&
+						this.state.tests.map((elm, idx) => {
+							if (elm.latlng) {
+								return (
+									<>
+										<MapContainer lat={elm.latlng.lat} lng={elm.latlng.lng} />
+										<p>{elm.title}</p>
+										<p>{elm.date}</p>
+										<p>{elm.requirements}</p>
+									</>
+								)
+							}
+						})}
+				</div>
+			)
+		} else return <h2>En construccion</h2>
 	}
 }
 
