@@ -27,9 +27,11 @@ class NavBar extends Component {
 
 		if (this.props.userInSession) {
 			return (
-				<Navbar bg='light' expand='lg' className='menu'>
+				<Navbar bg='dark' expand='lg' className='menu'>
 					<Navbar.Brand>
-						<h2>Basket lovers</h2>
+						<Link to='/'>
+							<img src='../images/Logo.svg' alt='Logo' className='logo-nav' />
+						</Link>
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
@@ -38,7 +40,7 @@ class NavBar extends Component {
 								<Link to='/'>Inicio</Link>
 							</Nav.Link>
 							<Nav.Link as='div'>
-								<Link to='/'>Jugadores</Link>
+								<Link to='/saved-players'>Jugadores</Link>
 							</Nav.Link>
 							<Nav.Link as='div'>
 								<Link to='/test'>Pruebas</Link>
@@ -55,24 +57,24 @@ class NavBar extends Component {
 			)
 		} else {
 			return (
-				<Navbar bg='light' expand='lg' className='menu'>
+				<Navbar bg='transparent' expand='lg' className='menu'>
 					<Navbar.Brand>
-						<h2>Basket lovers</h2>
+						<Link to='/'>
+							<img src='../images/Logo.svg' alt='Logo' className='logo-nav' />
+						</Link>
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
 						<Nav className='ml-auto'>
 							<Nav.Link as='div'>
-								<Link to='/'>Inicio</Link>
+								<Link to='/signup' className='nav-signup'>
+									Regístrate
+								</Link>
 							</Nav.Link>
 							<Nav.Link as='div'>
-								<Link to='/signup'>Registro</Link>
-							</Nav.Link>
-							<Nav.Link as='div'>
-								<Link to='/login'>Acceder</Link>
-							</Nav.Link>
-							<Nav.Link as='div'>
-								<small>Bienvenid@, {saludo}</small>
+								<Link to='/login' className='nav-login'>
+									Iniciar sesión
+								</Link>
 							</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>

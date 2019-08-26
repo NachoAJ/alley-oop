@@ -13,8 +13,8 @@ const statsSchema = new Schema(
 		FGM: String,
 		FGA: String,
 		FGPCT: String,
-		'3PM': String,
-		'3PPCT': String,
+		ThreePM: String,
+		ThreePPCT: String,
 		FTM: String,
 		FTPCT: String
 	},

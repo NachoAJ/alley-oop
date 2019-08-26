@@ -14,7 +14,8 @@ const userSchema = new Schema(
 		tests: [],
 		age: Number,
 		position: String,
-		stats: {}
+		stats: {},
+		savePlayers: []
 	},
 	{ timestamps: true }
 )

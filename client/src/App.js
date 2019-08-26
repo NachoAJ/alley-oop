@@ -14,6 +14,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import TestCreate from './components/Test-create'
 import TestList from './components/Test-list'
+import SavedPlayers from './components/SavedPlayers'
 
 class App extends Component {
 	constructor() {
@@ -77,8 +78,12 @@ class App extends Component {
 						}}
 					/>
 					<Route path='/login' exact render={match => <Login {...match} setUser={this.setTheUser} />} />
+					<Route path='/saved-players' exact render={() => <SavedPlayers user={this.state.loggedInUser} />} />
 					<Route path='/players' exact render={() => <PlayersList playersInfo={this.state.playersInfo} />} />
-					<Route path='/players/:id' render={match => <PlayerDetail {...match} playersInfo={this.state.players} />} />
+					<Route
+						path='/players/:id'
+						render={match => <PlayerDetail {...match} playersInfo={this.state.players} user={this.state.loggedInUser} />}
+					/>
 					<Route path='/test' exact render={() => <TestList user={this.state.loggedInUser} updateState={this.updateState} />} />
 					<Route path='/test/create' exact render={match => <TestCreate {...match} user={this.state.loggedInUser} />} />
 				</Switch>

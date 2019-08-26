@@ -42,4 +42,17 @@ router.get('/get-location/:loc', (req, res, next) => {
 		.catch(err => console.log(err))
 })
 
+router.post('/save-player', (req, res, next) => {
+	console.log(req.body)
+	User.findByIdAndUpdate(req.body.userId, {
+		$push: {
+			savePlayers: {
+				player: req.body.player
+			}
+		}
+	})
+		.then(user => res.json(user))
+		.catch(err => console.log('Error', err))
+})
+
 module.exports = router

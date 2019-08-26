@@ -1,0 +1,26 @@
+h1 {
+	color: white;
+}
+
+.home input,
+.home select {
+	background: #d4d3d3;
+	border: 0px;
+	padding: 10px 25px;
+}
+
+.home {
+	margin-top: 20%;
+	color: black;
+}
+
+.bg-white {
+	background: white;
+	padding: 15px 10px;
+}
+
+.button {
+	background: red;
+	color: white;
+	padding: 10px 25px;
+}

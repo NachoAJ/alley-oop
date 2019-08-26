@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="415px" height="123px" viewBox="0 0 415 123" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Logo_blanco</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-7.7%" y="-50.0%" width="115.4%" height="200.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="1" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Logo_blanco" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <text id="Alley-op" font-family="SFProDisplay-Bold, SF Pro Display" font-size="103" font-weight="bold">
+                <tspan x="0" y="98" fill="#F8F8F8">Alley</tspan>
+                <tspan x="233.359375" y="98" fill="#DC2014">   </tspan>
+                <tspan x="294.465332" y="98" fill="#FCFCFC">op</tspan>
+            </text>
+            <circle id="Oval" fill="#DC2014" cx="266.5" cy="49.5" r="27.5"></circle>
+            <ellipse id="Oval-Copy" fill="#FFFFFF" opacity="0.739350818" filter="url(#filter-1)" cx="266.5" cy="111" rx="19.5" ry="3"></ellipse>
+        </g>
+    </g>
+</svg>

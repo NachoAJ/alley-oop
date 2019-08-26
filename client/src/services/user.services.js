@@ -14,4 +14,5 @@ export default class Services {
 	addTest = theTest => this.service.post('add-test', theTest)
 	getTestById = theId => this.service.get(`get-test-id/${theId}`)
 	getLocation = theLocation => this.service.get(`get-location/${theLocation}`)
+	savePlayer = thePlayer => this.service.post('save-player', thePlayer)
 }

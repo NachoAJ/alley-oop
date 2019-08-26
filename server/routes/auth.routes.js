@@ -9,7 +9,6 @@ const Stats = require('../models/Stats.model')
 
 authRoutes.post('/signup', (req, res, next) => {
 	const { username, password, role, age, position } = req.body
-	console.log(req.body)
 
 	if (!username || !password) {
 		res.status(400).json({ message: 'Provide username and password' })
@@ -21,39 +20,47 @@ authRoutes.post('/signup', (req, res, next) => {
 		return
 	}
 
-	User.findOne({ username }, (err, foundUser) => {
-		if (err) {
-			res.status(500).json({ message: 'Username check went bad.' })
-			return
-		}
 
-		if (foundUser) {
-			res.status(400).json({ message: 'Username taken. Choose another one' })
-		}
+	Stats.findOne({Name: username}, (err, foundStats) => {
+		const stats = {...foundStats}
 
-		const salt = bcrypt.genSaltSync(10)
-		const hashPass = bcrypt.hashSync(password, salt)
+		console.log(stats)
 
-		const newUser = new User({
-			username: username,
-			password: hashPass,
-			role: role,
-			age: age,
-			position: position
-		})
-
-		newUser.save(err => {
+		User.findOne({ username }, (err, foundUser) => {
 			if (err) {
-				res.status(400).json({ message: 'Saving user to database went wrong.' })
+				res.status(500).json({ message: 'Username check went bad.' })
 				return
 			}
-
-			req.login(newUser, err => {
+	
+			if (foundUser) {
+				res.status(400).json({ message: 'Username taken. Choose another one' })
+			}
+	
+			const salt = bcrypt.genSaltSync(10)
+			const hashPass = bcrypt.hashSync(password, salt)
+	
+			const newUser = new User({
+				username: username,
+				password: hashPass,
+				role: role,
+				age: age,
+				position: position,
+				stats: stats
+			})
+	
+			newUser.save(err => {
 				if (err) {
-					res.status(500).json({ message: 'Login after signup went bad.' })
+					res.status(400).json({ message: 'Saving user to database went wrong.' })
 					return
 				}
-				res.status(200).json(newUser)
+	
+				req.login(newUser, err => {
+					if (err) {
+						res.status(500).json({ message: 'Login after signup went bad.' })
+						return
+					}
+					res.status(200).json(newUser)
+				})
 			})
 		})
 	})

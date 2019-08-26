@@ -1,0 +1,19 @@
+.App {
+	background-color: black;
+	min-height: 100vh;
+	color: white;
+}
+
+.nav-signup {
+	background: #d8d8d8;
+	color: black;
+	padding: 10px 20px;
+}
+
+.nav-login {
+	color: white;
+}
+
+.logo-nav {
+	width: 150px;
+}
