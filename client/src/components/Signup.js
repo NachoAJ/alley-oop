@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 import AuthServices from '../services/auth.services'
+import Services from '../services/user.services'
 
 class Signup extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			username: '',
+			email: '',
 			password: '',
 			role: 'PLAYER',
 			age: undefined,
-			position: 'BASE'
+			position: 'BASE',
+			imageUrl: ''
 		}
 		this.authServices = new AuthServices()
+		this.service = new Services()
 	}
 
 	handleInputChange = e => {
@@ -19,18 +23,30 @@ class Signup extends Component {
 		this.setState({ [name]: value })
 	}
 
+	handleFileUpload = e => {
+		const uploadData = new FormData()
+		uploadData.append('videoUrl', e.target.files[0])
+
+		this.service
+			.handleUpload(uploadData)
+			.then(response => this.setState({ imageUrl: response.data.secure_url }))
+			.catch(err => console.log(err))
+	}
+
 	handleFormSubmit = e => {
 		e.preventDefault()
-		const { username, password, role, age, position } = this.state
+		const { username, email, password, role, age, position, imageUrl } = this.state
 		this.authServices
-			.signup(username, password, role, age, position)
+			.signup(username, email, password, role, age, position, imageUrl)
 			.then(theNewUser => {
 				this.setState({
 					username: '',
+					email: '',
 					password: '',
 					role: '',
 					position: 'BASE',
-					age: 0
+					age: 0,
+					imageUrl: ''
 				})
 				this.props.setUser(theNewUser)
 				this.props.history.push('/')
@@ -53,6 +69,8 @@ class Signup extends Component {
 						<label htmlFor='username'>Usuario:</label>
 						<input name='username' type='text' id='username' value={this.state.username} onChange={this.handleInputChange} />{' '}
 						<br />
+						<label htmlFor='email'>Correo electrónico:</label>
+						<input name='email' type='email' id='email' value={this.state.email} onChange={this.handleInputChange} /> <br />
 						<label htmlFor='password'>Contraseña:</label>
 						<input name='password' type='password' id='password' value={this.state.password} onChange={this.handleInputChange} />
 						<br />
@@ -67,6 +85,9 @@ class Signup extends Component {
 							<option value='ALAPIVOT'>Ala-Pivot</option>
 							<option value='PIVOT'>Pivot</option>
 						</select>
+						<br />
+						<label htmlFor='imageUrl'>Imagen:</label>
+						<input name='imageUrl' type='file' id='imageUrl' onChange={this.handleFileUpload} />
 						<br />
 						<input type='submit' value='Registrar' />
 					</form>

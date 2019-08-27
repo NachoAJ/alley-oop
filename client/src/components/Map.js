@@ -211,15 +211,6 @@ class Map extends Component {
 					defaultZoom={this.props.zoom}
 					defaultCenter={{ lat: this.state.mapPosition.lat, lng: this.state.mapPosition.lng }}
 				>
-					{/* InfoWindow on top of marker */}
-					<InfoWindow
-						onClose={this.onInfoWindowClose}
-						position={{ lat: this.state.markerPosition.lat + 0.0018, lng: this.state.markerPosition.lng }}
-					>
-						<div>
-							<span style={{ padding: 0, margin: 0 }}>{this.state.address}</span>
-						</div>
-					</InfoWindow>
 					{/*Marker*/}
 					<Marker
 						google={this.props.google}

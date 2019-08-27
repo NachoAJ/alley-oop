@@ -40,6 +40,10 @@ class App extends Component {
 
 	componentDidMount = () => this.updateList()
 
+	updateLoggedInUser = elm => {
+		this.setState({ loggedInUser: elm })
+	}
+
 	updateList = () => {
 		this.services
 			.getPlayers()
@@ -82,7 +86,14 @@ class App extends Component {
 					<Route path='/players' exact render={() => <PlayersList playersInfo={this.state.playersInfo} />} />
 					<Route
 						path='/players/:id'
-						render={match => <PlayerDetail {...match} playersInfo={this.state.players} user={this.state.loggedInUser} />}
+						render={match => (
+							<PlayerDetail
+								{...match}
+								playersInfo={this.state.players}
+								user={this.state.loggedInUser}
+								updateLoggedInUser={this.updateLoggedInUser}
+							/>
+						)}
 					/>
 					<Route path='/test' exact render={() => <TestList user={this.state.loggedInUser} updateState={this.updateState} />} />
 					<Route path='/test/create' exact render={match => <TestCreate {...match} user={this.state.loggedInUser} />} />

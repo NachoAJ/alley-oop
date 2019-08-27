@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const axios = require('axios')
+const nodemailer = require('nodemailer')
 
 const User = require('../models/User.model')
 
@@ -11,7 +12,6 @@ router.get('/getAllPlayers', (req, res, next) => {
 })
 
 router.post('/add-test', (req, res, next) => {
-	console.log(req.body)
 	User.findByIdAndUpdate(req.body.id, {
 		$push: {
 			tests: {
@@ -43,16 +43,40 @@ router.get('/get-location/:loc', (req, res, next) => {
 })
 
 router.post('/save-player', (req, res, next) => {
-	console.log(req.body)
-	User.findByIdAndUpdate(req.body.userId, {
-		$push: {
-			savePlayers: {
-				player: req.body.player
+	User.findByIdAndUpdate(
+		req.body.userId,
+		{
+			$push: {
+				savePlayers: {
+					player: req.body.player
+				}
 			}
-		}
-	})
+		},
+		{ new: true }
+	)
 		.then(user => res.json(user))
 		.catch(err => console.log('Error', err))
+})
+
+router.post('/send-email', (req, res, next) => {
+	let { email, subject, message } = req.body
+	let transporter = nodemailer.createTransport({
+		service: 'Gmail',
+		auth: {
+			user: 'alleyoopiron@gmail.com',
+			pass: 'aeootlc6991$'
+		}
+	})
+	transporter
+		.sendMail({
+			from: '"Alley-Oop Team" <alleyoopiron@gmail.com>',
+			to: email,
+			subject: subject,
+			text: message,
+			html: `<b>${message}</b>`
+		})
+		.then(info => res.json(info))
+		.catch(error => console.log(error))
 })
 
 module.exports = router

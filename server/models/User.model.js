@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const userSchema = new Schema(
 	{
 		username: { type: String, required: true },
+		email: String,
 		password: { type: String, required: true },
 		role: {
 			type: String,
@@ -15,7 +16,8 @@ const userSchema = new Schema(
 		age: Number,
 		position: String,
 		stats: {},
-		savePlayers: []
+		savePlayers: [],
+		imageUrl: String
 	},
 	{ timestamps: true }
 )

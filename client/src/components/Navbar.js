@@ -18,6 +18,7 @@ class NavBar extends Component {
 			.logout()
 			.then(x => {
 				this.props.setUser(null)
+				this.props.match.history.push('/')
 			})
 			.catch(err => console.log(err))
 	}
@@ -27,7 +28,7 @@ class NavBar extends Component {
 
 		if (this.props.userInSession) {
 			return (
-				<Navbar bg='dark' expand='lg' className='menu'>
+				<Navbar expand='lg' className='menu'>
 					<Navbar.Brand>
 						<Link to='/'>
 							<img src='../images/Logo.svg' alt='Logo' className='logo-nav' />
@@ -37,19 +38,22 @@ class NavBar extends Component {
 					<Navbar.Collapse id='basic-navbar-nav'>
 						<Nav className='ml-auto'>
 							<Nav.Link as='div'>
-								<Link to='/'>Inicio</Link>
+								<Link to='/saved-players' className='white'>
+									Mis jugadores
+								</Link>
 							</Nav.Link>
 							<Nav.Link as='div'>
-								<Link to='/saved-players'>Jugadores</Link>
-							</Nav.Link>
-							<Nav.Link as='div'>
-								<Link to='/test'>Pruebas</Link>
+								<Link to='/test' className='white'>
+									Pruebas de selección
+								</Link>
 							</Nav.Link>
 							<Nav.Link as='div' onClick={this.logout}>
-								Cerrar sesión
+								<Link to='/' className='white'>
+									Cerrar sesión
+								</Link>
 							</Nav.Link>
 							<Nav.Link as='div'>
-								<small>Bienvenid@, {saludo}</small>
+								<small className='white'>{saludo}</small>
 							</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>
@@ -57,7 +61,7 @@ class NavBar extends Component {
 			)
 		} else {
 			return (
-				<Navbar bg='transparent' expand='lg' className='menu'>
+				<Navbar expand='lg' className='menu'>
 					<Navbar.Brand>
 						<Link to='/'>
 							<img src='../images/Logo.svg' alt='Logo' className='logo-nav' />

@@ -66,19 +66,6 @@ class TestCreate extends Component {
 					<label htmlFor='title'>Título:</label>
 					<input name='title' type='text' id='title' value={this.state.title} onChange={this.handleInputChange} /> <br />
 					<label htmlFor='location'>Ubicación:</label>
-					{/* <Autocomplete
-						name='location'
-						id='location'
-						style={{
-							width: '100%',
-							height: '40px',
-							paddingLeft: '16px',
-							margin: '2px'
-						}}
-						onPlaceSelected={this.onPlaceSelected}
-						types={['establishment']}
-						onChange={this.handleInputChange}
-					/> */}
 					<input name='location' type='text' id='location' value={this.state.location} onChange={this.handleInputChange} />
 					<br />
 					<label htmlFor='date'>Fecha:</label>

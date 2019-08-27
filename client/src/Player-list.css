@@ -1,0 +1,14 @@
+.player-box {
+	width: 1062px;
+	height: 196px;
+	border-radius: 1px;
+	box-shadow: 0 1px 1px 0 rgba(191, 191, 191, 0.5);
+	background-color: #ffffff;
+	margin: 20px auto;
+}
+
+.player-box img {
+	height: 195.5px;
+	width: 277px;
+	object-fit: cover;
+}

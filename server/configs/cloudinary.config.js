@@ -12,8 +12,7 @@ const storage = cloudinaryStorage({
 	cloudinary: cloudinary,
 	params: {
 		folder: 'final-project',
-		format: 'mp4',
-		resource_type: 'video'
+		resource_type: 'auto'
 	},
 	filename: function(req, res, cb) {
 		cb(null, res.originalname)
