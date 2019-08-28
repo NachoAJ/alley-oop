@@ -15,6 +15,7 @@ import Home from './components/Home'
 import TestCreate from './components/Test-create'
 import TestList from './components/Test-list'
 import SavedPlayers from './components/SavedPlayers'
+import Footer from './components/Footer'
 
 class App extends Component {
 	constructor() {
@@ -41,6 +42,7 @@ class App extends Component {
 	componentDidMount = () => this.updateList()
 
 	updateLoggedInUser = elm => {
+		console.log('actualizoo')
 		this.setState({ loggedInUser: elm })
 	}
 
@@ -96,8 +98,15 @@ class App extends Component {
 						)}
 					/>
 					<Route path='/test' exact render={() => <TestList user={this.state.loggedInUser} updateState={this.updateState} />} />
-					<Route path='/test/create' exact render={match => <TestCreate {...match} user={this.state.loggedInUser} />} />
+					<Route
+						path='/test/create'
+						exact
+						render={match => (
+							<TestCreate {...match} user={this.state.loggedInUser} updateLoggedInUser={this.updateLoggedInUser} />
+						)}
+					/>
 				</Switch>
+				<Footer></Footer>
 			</div>
 		)
 	}

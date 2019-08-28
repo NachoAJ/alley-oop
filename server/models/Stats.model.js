@@ -7,16 +7,16 @@ const statsSchema = new Schema(
 		Team: String,
 		Rank: String,
 		Pos: String,
-		GP: String,
+		Gp: String,
 		Pts: String,
-		PPG: String,
-		FGM: String,
-		FGA: String,
-		FGPCT: String,
+		Ppg: String,
+		Fgm: String,
+		Fga: String,
+		Fgpct: String,
 		ThreePM: String,
 		ThreePPCT: String,
-		FTM: String,
-		FTPCT: String
+		Ftm: String,
+		Ftpct: String
 	},
 	{ timestamps: true }
 )

@@ -1,0 +1,21 @@
+footer {
+	height: 250px;
+	background-color: #dc2014;
+	margin-top: 40px;
+}
+
+footer h4 {
+	font-size: 18px;
+}
+
+footer .upper {
+	padding: 40px;
+}
+
+footer .bottom {
+	padding-top: 15px;
+	height: 50px;
+	background: black;
+	color: white;
+	text-align: center;
+}

@@ -8,7 +8,6 @@ class MapContainer extends Component {
 	}
 
 	render() {
-		console.log(this.props)
 		return (
 			<div>
 				<Map center={{ lat: this.props.lat, lng: this.props.lng }} height='300px' zoom={15} />

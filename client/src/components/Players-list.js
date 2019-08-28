@@ -5,17 +5,50 @@ import '../Player-list.css'
 class PlayersList extends Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			players: this.props.playersInfo
+		}
+	}
+
+	sortListBy3PM = () => {
+		let playersCopy = [...this.state.players]
+		playersCopy = playersCopy.sort((a, b) => b.stats.ThreePPCT - a.stats.ThreePPCT)
+		this.setState({ players: playersCopy })
+	}
+
+	sortListByPTS = () => {
+		let playersCopy = [...this.state.players]
+		playersCopy = playersCopy.sort((a, b) => b.stats.Pts - a.stats.Pts)
+		this.setState({ players: playersCopy })
+	}
+
+	sortListByGP = () => {
+		let playersCopy = [...this.state.players]
+		playersCopy = playersCopy.sort((a, b) => b.stats.Gp - a.stats.Gp)
+		this.setState({ players: playersCopy })
+	}
+
+	sortListByFgpct = () => {
+		let playersCopy = [...this.state.players]
+		playersCopy = playersCopy.sort((a, b) => b.stats.Fgpct - a.stats.Fgpct)
+		this.setState({ players: playersCopy })
+	}
+
+	sortListByFtpct = () => {
+		let playersCopy = [...this.state.players]
+		playersCopy = playersCopy.sort((a, b) => b.stats.Ftpct - a.stats.Ftpct)
+		this.setState({ players: playersCopy })
 	}
 
 	render() {
 		return (
 			<div className='container'>
-				{/* <button>GP</button>
-				<button>PTS</button>
-				<button>3PM</button>
-				<button>FGM</button>
-				<button>FTM</button> */}
-				{this.props.playersInfo.map(elm => (
+				<button onClick={this.sortListByGP}>GP</button>
+				<button onClick={this.sortListByPTS}>PTS</button>
+				<button onClick={this.sortListBy3PM}>3P%</button>
+				<button onClick={this.sortListByFgpct}>FG%</button>
+				<button onClick={this.sortListByFtpct}>FT%</button>
+				{this.state.players.map(elm => (
 					<div className='player-box' key={elm._id}>
 						<div className='container'>
 							<div className='row'>

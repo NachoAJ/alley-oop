@@ -1,0 +1,56 @@
+.player-details header {
+	margin: 50px 0;
+	background: white;
+}
+
+.player-details img {
+	width: 200px;
+	height: 150px;
+	object-fit: cover;
+	margin: -80px 0 0 35px;
+	border: solid 3px white;
+}
+.player-details .cover {
+	background-image: url('./images/player_cover.jpg');
+	background-size: cover;
+	background-position-y: 370px;
+	height: 250px;
+}
+
+.player-details .padding {
+	padding: 25px 0;
+}
+
+.player-details h2 {
+	font-size: 24px;
+}
+
+.player-details .contact-btn {
+	color: white;
+	padding: 11px 20px;
+	border: 0px;
+	border-radius: 1px;
+	background-color: #dc2014;
+}
+
+.player-details .save-btn {
+	padding: 10px 20px;
+	border: 1px solid black;
+	border-radius: 1px;
+	background-color: white;
+	margin: 15px 40px;
+}
+
+.player-details .videos {
+	display: flex;
+}
+
+.player-details ul {
+	list-style: none;
+	margin: 0 -10px;
+}
+
+.player-details .secondary-videos {
+	max-height: 480px;
+	overflow: scroll;
+}

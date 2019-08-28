@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Video = ({ url }) => {
+const Video = ({ url, width }) => {
 	return (
-		<video controls width='400'>
+		<video controls width={width}>
 			<source src={url} type='video/mp4' />
 		</video>
 	)

@@ -32,6 +32,8 @@ class TestCreate extends Component {
 				this.userServices
 					.addTest({ title, location, date, requirements, id, latlng })
 					.then(x => {
+						// console.log(x.data)
+						// this.props.updateLoggedInUser(x.data)
 						this.setState({
 							title: '',
 							location: '',

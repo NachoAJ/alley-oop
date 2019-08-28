@@ -3,6 +3,8 @@ import Video from '../components/Video'
 import Services from '../services/user.services'
 import { Modal } from 'react-bootstrap'
 
+import '../Player-details.css'
+
 class Player extends Component {
 	constructor(props) {
 		super(props)
@@ -57,35 +59,69 @@ class Player extends Component {
 
 	render() {
 		return (
-			<div className='container'>
-				<h1>{this.state.player.username}</h1>
-				<p>{this.state.player.position}</p>
-				<p>{this.state.player.age}</p>
-				<button onClick={this.handleModalOpen}>Contactar</button>
-				<form onSubmit={this.savePlayer}>
-					<button>Guardar</button>
-				</form>
-				<br />
-				{this.state.player.videos.map((elm, idx) => {
-					return <Video url={elm} key={idx} />
-				})}
-				<Modal show={this.state.showModal} onHide={this.handleModalClose}>
-					<div className='container'>
-						<Modal.Header closeButton>
-							<h4 className='center'>Contactar</h4>
-						</Modal.Header>
-						<Modal.Body>
-							<form onSubmit={this.handleEmail}>
-								<label htmlFor='subject'>Asunto:</label>
-								<input type='text' name='subject' id='subject' onChange={this.handleInputChange}></input>
+			<div className='player-details'>
+				<div className='container'>
+					<header>
+						<div className='cover'></div>
+						<div className='row padding'>
+							<div className='col-md-3'>
+								<img src={this.state.player.imageUrl}></img>
+							</div>
+							<div className='col-md-5'>
+								<h2>{this.state.player.username}</h2>
+								<span>Posicion: {this.state.player.position}</span>
 								<br></br>
-								<label htmlFor='message'>Mensaje:</label>
-								<textarea name='message' id='message' onChange={this.handleInputChange}></textarea>
-								<button>Enviar</button>
-							</form>
-						</Modal.Body>
-					</div>
-				</Modal>
+								<span>Edad: {this.state.player.age}</span>
+							</div>
+							<div className='col-md-4'>
+								<button onClick={this.savePlayer} className='save-btn'>
+									Guardar
+								</button>
+								<button onClick={this.handleModalOpen} className='contact-btn'>
+									Contactar
+								</button>
+							</div>
+						</div>
+					</header>
+					<h2>Vídeos</h2>
+					<section className='videos'>
+						{this.state.player.videos.map((elm, idx) => {
+							if (idx === 0) {
+								return <Video url={elm} key={idx} width='850px' />
+							}
+						})}
+						<div className='secondary-videos'>
+							<ul>
+								{this.state.player.videos.map((elm, idx) => {
+									if (idx > 0) {
+										return (
+											<li>
+												<Video url={elm} key={idx} width='230px' />
+											</li>
+										)
+									}
+								})}
+							</ul>
+						</div>
+					</section>
+					<Modal show={this.state.showModal} onHide={this.handleModalClose}>
+						<div className='container'>
+							<Modal.Header closeButton>
+								<h4 className='center'>Contactar</h4>
+							</Modal.Header>
+							<Modal.Body>
+								<form onSubmit={this.handleEmail}>
+									<label htmlFor='subject'>Asunto:</label>
+									<input type='text' name='subject' id='subject' onChange={this.handleInputChange}></input>
+									<br></br>
+									<label htmlFor='message'>Mensaje:</label>
+									<textarea name='message' id='message' onChange={this.handleInputChange}></textarea>
+									<button>Enviar</button>
+								</form>
+							</Modal.Body>
+						</div>
+					</Modal>
+				</div>
 			</div>
 		)
 	}
