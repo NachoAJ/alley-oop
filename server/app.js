@@ -61,12 +61,11 @@ app.use(passport.session())
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public', 'images')))
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator'
 
-app.use('/', require('./routes/index.routes'))
 app.use('/api', require('./routes/auth.routes'))
 app.use('/api', require('./routes/user.routes'))
 app.use('/api', require('./routes/file-upload.routes'))
