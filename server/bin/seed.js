@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const Stats = require('../models/Stats.model')
-mongoose.connect(`mongodb://localhost/final-project`, { useNewUrlParser: true })
+mongoose.connect(`mongodb://localhost/alley-oop`, { useNewUrlParser: true })
 
 const stats = [
 	{
