@@ -73,7 +73,7 @@ router.post('/send-email', (req, res, next) => {
 			to: email,
 			subject: subject,
 			text: message,
-			html: `<b>${message}</b>`
+			html: `Hola!! <br><br> Desde el equipo de Alley-Oop te remitimos este mensaje: <br>	<b>${message}</b><br><br> Gracias por contar con nosotros!`
 		})
 		.then(info => res.json(info))
 		.catch(error => console.log(error))

@@ -12,7 +12,8 @@ class Player extends Component {
 			player: { role: '', videos: [], position: '', username: '', age: '', stats: '' },
 			showModal: false,
 			subject: '',
-			message: ''
+			message: '',
+			addBtn: true
 		}
 		this.services = new Services()
 	}
@@ -32,6 +33,8 @@ class Player extends Component {
 				console.log(response)
 				this.props.updateLoggedInUser(response)
 				console.log('Jugador Añadido')
+				const aux = !this.state.addBtn
+				this.setState({ addBtn: aux })
 			})
 			.catch(err => console.log('Ha habido un error', err))
 	}
@@ -74,9 +77,16 @@ class Player extends Component {
 								<span>Edad: {this.state.player.age}</span>
 							</div>
 							<div className='col-md-4'>
-								<button onClick={this.savePlayer} className='save-btn'>
-									Guardar
-								</button>
+								{this.state.addBtn ? (
+									<button onClick={this.savePlayer} className='save-btn'>
+										Guardar
+									</button>
+								) : (
+									<button onClick={this.savePlayer} className='save-btn'>
+										Guardado!
+									</button>
+								)}
+
 								<button onClick={this.handleModalOpen} className='contact-btn'>
 									Contactar
 								</button>

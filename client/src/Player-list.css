@@ -1,3 +1,7 @@
+.players-list {
+	min-height: 80vh;
+}
+
 .player-box {
 	width: 1062px;
 	height: 196px;

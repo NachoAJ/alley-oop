@@ -5,10 +5,16 @@ import '../Home.css'
 class PlayersList extends Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			age: '',
+			position: 'BASE'
+		}
 	}
 
 	handleOnChange = e => {
 		this.props.searchPlayer(e.target.value)
+		const { name, value } = e.target
+		this.setState({ [name]: value })
 	}
 
 	render() {
@@ -35,7 +41,7 @@ class PlayersList extends Component {
 						<div className='col-md-4'>
 							<label>Edad</label>
 							<br></br>
-							<input type='number' onChange={this.handleOnChange} placeholder='16' />
+							<input type='number' name='age' onChange={this.handleOnChange} placeholder='16' />
 						</div>
 						<div className='col-md-4'>
 							<br></br>

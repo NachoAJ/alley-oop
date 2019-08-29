@@ -56,9 +56,7 @@ class TestList extends Component {
 
 														<p>Requisitos: {elm.requirements}</p>
 													</div>
-													<div className='col-md-4'>
-														<button className='delete-btn'>Eliminar</button>
-													</div>
+													<div className='col-md-4'>{/* <button className='delete-btn'>Eliminar</button> */}</div>
 												</div>
 											</div>
 										</div>

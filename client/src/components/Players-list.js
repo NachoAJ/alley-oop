@@ -57,7 +57,7 @@ class PlayersList extends Component {
 
 	render() {
 		return (
-			<div className='container'>
+			<div className='container players-list'>
 				<div className='btn-list'>
 					<button className='order-btn' onClick={this.sortListByGP}>
 						PJ
