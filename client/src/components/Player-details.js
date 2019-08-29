@@ -83,6 +83,47 @@ class Player extends Component {
 							</div>
 						</div>
 					</header>
+					<section className='stats'>
+						<h2>Estadísticas</h2>
+						<div className='box'>
+							<div className='container'>
+								<div className='row'>
+									{this.state.player.stats && <div className='col-md-1'></div>}
+									{this.state.player.stats && (
+										<div className='col-md-2'>
+											<p>{this.state.player.stats.Gp}</p>
+											<span>Partidos Jugados</span>
+										</div>
+									)}
+									{this.state.player.stats && (
+										<div className='col-md-2'>
+											<p>{this.state.player.stats.Ppg}</p>
+											<span>Puntos por partido</span>
+										</div>
+									)}
+									{this.state.player.stats && (
+										<div className='col-md-2'>
+											<p>{this.state.player.stats.Fgpct}%</p>
+											<span>Tiros de campo</span>
+										</div>
+									)}
+									{this.state.player.stats && (
+										<div className='col-md-2'>
+											<p>{this.state.player.stats.ThreePPCT}%</p>
+											<span>Triples</span>
+										</div>
+									)}
+									{this.state.player.stats && (
+										<div className='col-md-2'>
+											<p>{this.state.player.stats.Ftpct}%</p>
+											<span>Tiros libres</span>
+										</div>
+									)}
+									{this.state.player.stats && <div className='col-md-1'></div>}
+								</div>
+							</div>
+						</div>
+					</section>
 					<h2>Vídeos</h2>
 					<section className='videos'>
 						{this.state.player.videos.map((elm, idx) => {

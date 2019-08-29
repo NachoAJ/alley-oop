@@ -16,4 +16,5 @@ export default class Services {
 	getLocation = theLocation => this.service.get(`get-location/${theLocation}`)
 	savePlayer = thePlayer => this.service.post('save-player', thePlayer)
 	sendEmail = theMail => this.service.post('send-email', theMail)
+	updatePlayer = theId => this.service.post('update-player', theId)
 }

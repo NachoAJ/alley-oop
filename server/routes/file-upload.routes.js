@@ -15,7 +15,7 @@ router.post('/upload', uploader.single('videoUrl'), (req, res, next) => {
 
 router.post('/video-upload', (req, res, next) => {
 	User.findByIdAndUpdate(req.body.id, { $push: { videos: req.body.videoUrl } })
-		.then(() => console.log('Video añadido'))
+		.then(response => res.json(response))
 		.catch(err => console.log('Error', err))
 })
 

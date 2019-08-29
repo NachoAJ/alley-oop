@@ -26,7 +26,7 @@ class NavBar extends Component {
 	render() {
 		const saludo = this.props.userInSession ? this.props.userInSession.data.username : 'invitado'
 
-		if (this.props.userInSession) {
+		if (this.props.userInSession && this.props.userInSession.data.role === 'COACH') {
 			return (
 				<Navbar expand='lg' className='menu'>
 					<Navbar.Brand>
@@ -40,6 +40,39 @@ class NavBar extends Component {
 							<Nav.Link as='div'>
 								<Link to='/saved-players' className='white'>
 									Mis jugadores
+								</Link>
+							</Nav.Link>
+							<Nav.Link as='div'>
+								<Link to='/test' className='white'>
+									Pruebas de selección
+								</Link>
+							</Nav.Link>
+							<Nav.Link as='div' onClick={this.logout}>
+								<Link to='/' className='white'>
+									Cerrar sesión
+								</Link>
+							</Nav.Link>
+							<Nav.Link as='div'>
+								<small className='white'>{saludo}</small>
+							</Nav.Link>
+						</Nav>
+					</Navbar.Collapse>
+				</Navbar>
+			)
+		} else if (this.props.userInSession && this.props.userInSession.data.role === 'PLAYER') {
+			return (
+				<Navbar expand='lg' className='menu'>
+					<Navbar.Brand>
+						<Link to='/'>
+							<img src='../images/Logo.svg' alt='Logo' className='logo-nav' />
+						</Link>
+					</Navbar.Brand>
+					<Navbar.Toggle aria-controls='basic-navbar-nav' />
+					<Navbar.Collapse id='basic-navbar-nav'>
+						<Nav className='ml-auto'>
+							<Nav.Link as='div'>
+								<Link to='/profile' className='white'>
+									Mi perfil
 								</Link>
 							</Nav.Link>
 							<Nav.Link as='div'>

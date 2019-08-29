@@ -49,7 +49,7 @@ class App extends Component {
 	componentDidMount = () => this.updateList()
 
 	updateLoggedInUser = elm => {
-		console.log('actualizoo')
+		console.log('actualizo')
 		this.setState({ loggedInUser: elm })
 	}
 
@@ -65,10 +65,6 @@ class App extends Component {
 		this.setState({
 			playersInfo: playerCopy.filter(elm => elm.age.toString() === string || elm.position === string)
 		})
-	}
-
-	updateState = () => {
-		this.setState(this.state)
 	}
 
 	render() {
@@ -87,7 +83,7 @@ class App extends Component {
 							if (this.state.loggedInUser && this.state.loggedInUser.data.role === 'COACH') {
 								return <Scout user={this.state.loggedInUser.data} />
 							} else if (this.state.loggedInUser && this.state.loggedInUser.data.role === 'PLAYER')
-								return <Player updateState={this.updateState} user={this.state.loggedInUser.data} />
+								return <Player updateLoggedInUser={this.updateLoggedInUser} user={this.state.loggedInUser} />
 						}}
 					/>
 					<Route path='/login' exact render={match => <Login {...match} setUser={this.setTheUser} />} />

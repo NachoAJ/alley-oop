@@ -79,4 +79,10 @@ router.post('/send-email', (req, res, next) => {
 		.catch(error => console.log(error))
 })
 
+router.post('/update-player', (req, res, next) => {
+	User.findById(req.body.id)
+		.then(user => res.json(user))
+		.catch(err => console.log('Error', err))
+})
+
 module.exports = router
