@@ -1,20 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.44ad5281.chunk.css",
-    "main.js": "/static/js/main.7217b52a.chunk.js",
-    "main.js.map": "/static/js/main.7217b52a.chunk.js.map",
+    "main.css": "/static/css/main.4470bd1a.chunk.css",
+    "main.js": "/static/js/main.1405faa2.chunk.js",
+    "main.js.map": "/static/js/main.1405faa2.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.ea92a0de.js",
     "runtime~main.js.map": "/static/js/runtime~main.ea92a0de.js.map",
     "static/css/2.266e55a5.chunk.css": "/static/css/2.266e55a5.chunk.css",
-    "static/js/2.f21e8cb9.chunk.js": "/static/js/2.f21e8cb9.chunk.js",
-    "static/js/2.f21e8cb9.chunk.js.map": "/static/js/2.f21e8cb9.chunk.js.map",
+    "static/js/2.64b5c00d.chunk.js": "/static/js/2.64b5c00d.chunk.js",
+    "static/js/2.64b5c00d.chunk.js.map": "/static/js/2.64b5c00d.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.836376115ce2ee895ddea8773b5269d3.js": "/precache-manifest.836376115ce2ee895ddea8773b5269d3.js",
+    "precache-manifest.d9bdd52165d75445ba63dc5bcb8a3e08.js": "/precache-manifest.d9bdd52165d75445ba63dc5bcb8a3e08.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.266e55a5.chunk.css.map": "/static/css/2.266e55a5.chunk.css.map",
-    "static/css/main.44ad5281.chunk.css.map": "/static/css/main.44ad5281.chunk.css.map",
+    "static/css/main.4470bd1a.chunk.css.map": "/static/css/main.4470bd1a.chunk.css.map",
+    "static/media/Foto_home_div_entrenador.png": "/static/media/Foto_home_div_entrenador.c7ac6f50.png",
+    "static/media/Foto_home_div_jugador.png": "/static/media/Foto_home_div_jugador.f9e78313.png",
     "static/media/Home.css": "/static/media/bg.006fcf8c.png",
     "static/media/Test-create.css": "/static/media/foto_cabecera2.66960d49.png",
+    "static/media/foto_home_div_tech.png": "/static/media/foto_home_div_tech.da98fb22.png",
     "static/media/Player-details.css": "/static/media/player_cover.7b42cbd8.jpg"
   }
 }
