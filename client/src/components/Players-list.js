@@ -12,31 +12,46 @@ class PlayersList extends Component {
 
 	sortListBy3PM = () => {
 		let playersCopy = [...this.state.players]
-		playersCopy = playersCopy.sort((a, b) => b.stats.ThreePPCT - a.stats.ThreePPCT)
+		playersCopy = playersCopy.sort((a, b) => {
+			if (b.stats && a.stats) return b.stats.ThreePPCT - a.stats.ThreePPCT
+			else return 0
+		})
 		this.setState({ players: playersCopy })
 	}
 
 	sortListByPTS = () => {
 		let playersCopy = [...this.state.players]
-		playersCopy = playersCopy.sort((a, b) => b.stats.Pts - a.stats.Pts)
+		playersCopy = playersCopy.sort((a, b) => {
+			if (b.stats && a.stats) return b.stats.Pts - a.stats.Pts
+			else return 0
+		})
 		this.setState({ players: playersCopy })
 	}
 
 	sortListByGP = () => {
 		let playersCopy = [...this.state.players]
-		playersCopy = playersCopy.sort((a, b) => b.stats.Gp - a.stats.Gp)
+		playersCopy = playersCopy.sort((a, b) => {
+			if (b.stats && a.stats) return b.stats.Gp - a.stats.Gp
+			else return 0
+		})
 		this.setState({ players: playersCopy })
 	}
 
 	sortListByFgpct = () => {
 		let playersCopy = [...this.state.players]
-		playersCopy = playersCopy.sort((a, b) => b.stats.Fgpct - a.stats.Fgpct)
+		playersCopy = playersCopy.sort((a, b) => {
+			if (b.stats && a.stats) return b.stats.Fgpct - a.stats.Fgpct
+			else return 0
+		})
 		this.setState({ players: playersCopy })
 	}
 
 	sortListByFtpct = () => {
 		let playersCopy = [...this.state.players]
-		playersCopy = playersCopy.sort((a, b) => b.stats.Ftpct - a.stats.Ftpct)
+		playersCopy = playersCopy.sort((a, b) => {
+			if (b.stats && a.stats) return b.stats.Fgpct - a.stats.Fgpct
+			else return 0
+		})
 		this.setState({ players: playersCopy })
 	}
 
@@ -79,8 +94,9 @@ class PlayersList extends Component {
 										</Link>
 									</div>
 									<div className='stats'>
-										<span className='single-stat'>{elm.stats.ThreePM}</span>
-										<span className='single-stat'>{elm.stats.ThreePPCT}</span>
+										{elm.stats && <span className='single-stat'>{elm.stats.ThreePM}</span>}
+										{elm.stats && <span className='single-stat'>{elm.stats.ThreePPCT}</span>}
+
 										<br></br>
 										<span className='label'>3PM</span>
 										<span className='label'>3P%</span>

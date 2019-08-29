@@ -1,5 +1,6 @@
 .saved-players {
 	padding: 30px 70px;
+	min-height: 80vh;
 }
 
 .saved-players h2 {

@@ -36,8 +36,8 @@ class SavedPlayers extends Component {
 											</Link>
 										</div>
 										<div className='stats'>
-											<span className='single-stat'>{elm.player.stats.ThreePM}</span>
-											<span className='single-stat'>{elm.player.stats.ThreePPCT}</span>
+											{elm.player.stats && <span className='single-stat'>{elm.player.stats.ThreePM}</span>}
+											{elm.player.stats && <span className='single-stat'>{elm.player.stats.ThreePPCT}</span>}
 											<br></br>
 											<span className='label'>3PM</span>
 											<span className='label'>3P%</span>
