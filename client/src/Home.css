@@ -1,6 +1,11 @@
+@font-face {
+	font-family: myFont;
+	src: url('./fonts/HighSchoolUSASerif.ttf');
+}
+
 .home h1 {
 	color: white;
-	font-family: 'Graduate', cursive;
+	font-family: myFont;
 	margin-left: 100px;
 	font-size: 56px;
 }
@@ -33,6 +38,79 @@
 .home .button {
 	background: #dc2014;
 	margin-left: 70px;
+	padding: 10px 35px;
+	color: white !important;
+	text-decoration: none !important;
+}
+
+.search-players {
+	padding: 120px 0;
+}
+
+.img-footer {
+	width: 400px;
+}
+
+.search-players h2 {
+	font-size: 48px;
+	font-weight: 400;
+}
+
+.search-players p {
+	font-size: 20px;
+}
+
+.search-players button {
+	background: #dc2014;
+	border: 0;
+	padding: 10px 35px;
+	color: white !important;
+	text-decoration: none !important;
+}
+
+.web-scrapping h2 {
+	font-size: 48px;
+	font-weight: 400;
+}
+
+.web-scrapping p {
+	font-size: 20px;
+}
+
+.web-scrapping {
+	padding: 120px 0;
+	background: #0b0b0b;
+	color: white;
+}
+
+.web-scrapping button {
+	background: #dc2014;
+	border: 0;
+	padding: 10px 35px;
+	color: white !important;
+	text-decoration: none !important;
+}
+
+.ncaa {
+	padding: 120px 0;
+}
+
+.ncaa h2 {
+	font-size: 48px;
+	font-weight: 400;
+}
+
+.ncaa p {
+	font-size: 20px;
+}
+
+.ncaa .img-footer {
+	width: 320px;
+}
+
+.ncaa button {
+	background: #dc2014;
+	border: 0;
 	padding: 10px 35px;
 	color: white !important;
 	text-decoration: none !important;
