@@ -51,3 +51,15 @@
 	font-weight: 300;
 	margin-left: 30px;
 }
+
+.order-btn {
+	background: #dc2014;
+	border: 0;
+	color: white;
+	padding: 5px 15px;
+}
+
+.btn-list {
+	text-align: center;
+	margin: 20px;
+}

@@ -25,6 +25,13 @@ class App extends Component {
 		this.services = new UserServices()
 	}
 
+	getTests = () => {
+		this.services
+			.getTestById(this.state.loggedInUser.data._id)
+			.then(response => this.setState({ tests: response.data }))
+			.catch(err => console.log(err))
+	}
+
 	setTheUser = user => {
 		this.setState({ loggedInUser: user })
 		console.log('Un componente ha cambiado el usuario en App:', this.state.loggedInUser)

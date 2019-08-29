@@ -37,7 +37,7 @@ class Player extends Component {
 				<p>{this.props.user.age}</p>
 				<p>{this.props.user.position}</p>
 				<div className='form-group'>
-					<label htmlFor='input-vid'>URL imagen</label>
+					<img src={this.props.user.imageUrl} alt='Foto de Perfil'></img>
 					<input name='videoUrl' type='file' className='form-control' id='input-vid' onChange={this.handleFileUpload} />
 				</div>
 				{this.props.user.videos.map((elm, idx) => (

@@ -1,7 +1,40 @@
 .test-list .add-btn {
 	background: #dc2014;
 	padding: 10px 35px;
-	margin: 50px;
+	margin: 25px 0 0 955px;
 	color: white !important;
 	text-decoration: none !important;
+}
+
+.test-list .delete-btn {
+	background: #dc2014;
+	padding: 10px 35px;
+	margin: 0px 140px;
+	color: white;
+	border: 0;
+}
+
+.test-list h2 {
+	font-size: 24px;
+}
+
+.test-list h3 {
+	font-size: 28px;
+	margin-left: 22px;
+}
+
+.test-list .text-box {
+	width: 1062px;
+	height: 196px;
+	border-radius: 1px;
+	box-shadow: 0 1px 1px 0 rgba(191, 191, 191, 0.5);
+	background-color: #ffffff;
+	margin: 20px auto;
+}
+.test-list .text-box .no-padding {
+	padding: 0;
+}
+
+.test-list .margin {
+	display: flex;
 }

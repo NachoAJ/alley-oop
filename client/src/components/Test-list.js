@@ -14,6 +14,7 @@ class TestList extends Component {
 	}
 
 	componentDidMount() {
+		console.log('Soy el component did mount')
 		this.getTests()
 	}
 
@@ -25,6 +26,7 @@ class TestList extends Component {
 	}
 
 	render() {
+		console.log('Soy el render')
 		if (this.props.user.data.role === 'COACH') {
 			return (
 				<div className='test-list'>
@@ -41,18 +43,24 @@ class TestList extends Component {
 									return (
 										<div className='text-box'>
 											<div className='container'>
-												<div className='row'>
-													<div className='col-md-4'>
-														<MapContainer lat={elm.latlng.lat} lng={elm.latlng.lng} />
+												<div className='row align-items-center'>
+													<div className='col-md-4 no-padding'>
+														<MapContainer className='map' lat={elm.latlng.lat} lng={elm.latlng.lng} />
 													</div>
 													<div className='col-md-4'>
-														<p>{elm.title}</p>
-														<p>{elm.location}</p>
-														<p>{elm.date}</p>
-														<p>{elm.requirements}</p>
+														<h2>{elm.title}</h2>
+														<p>
+															<i class='fas fa-map-marker-alt'></i> {elm.location}
+															{'  '}
+															<i class='fas fa-calendar-day'></i> {elm.date}
+														</p>
+
+														<p>Requisitos: {elm.requirements}</p>
 													</div>
 													<div className='col-md-4'>
-														<button>Eliminar</button>
+														<button className='delete-btn' onClick={this.getTests}>
+															Eliminar
+														</button>
 													</div>
 												</div>
 											</div>

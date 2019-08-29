@@ -11,7 +11,8 @@
 }
 
 .white {
-	color: white;
+	color: white !important;
+	text-decoration: none !important;
 }
 
 .nav-signup {

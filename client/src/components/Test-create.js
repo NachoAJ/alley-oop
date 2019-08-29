@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import UserServices from '../services/user.services'
 import Autocomplete from 'react-google-autocomplete'
+import '../Test-create.css'
 
 class TestCreate extends Component {
 	constructor(props) {
@@ -62,23 +63,68 @@ class TestCreate extends Component {
 
 	render() {
 		return (
-			<>
-				<h1>Nueva prueba</h1>
-				<form onSubmit={this.handleFormSubmit}>
-					<label htmlFor='title'>Título:</label>
-					<input name='title' type='text' id='title' value={this.state.title} onChange={this.handleInputChange} /> <br />
-					<label htmlFor='location'>Ubicación:</label>
-					<input name='location' type='text' id='location' value={this.state.location} onChange={this.handleInputChange} />
-					<br />
-					<label htmlFor='date'>Fecha:</label>
-					<input name='date' type='date' id='date' value={this.state.date} onChange={this.handleInputChange} />
-					<br />
-					<label htmlFor='requirements'>Requisitos:</label>
-					<textarea name='requirements' id='requirements' value={this.state.requirements} onChange={this.handleInputChange} />
-					<br />
-					<input type='submit' value='Registrar' />
-				</form>
-			</>
+			<div className='test-create'>
+				<div className='container'>
+					<div className='row align-items-center'>
+						<div className='col-md-8'>
+							<h2>Crea pruebas de selección y encuentra candidatos</h2>
+						</div>
+						<div className='col-md-4'>
+							<div className='box'>
+								<h3>Publica tu prueba</h3>
+								<form onSubmit={this.handleFormSubmit}>
+									<label htmlFor='title'>Título:</label>
+									<br></br>
+									<input
+										className='input'
+										placeholder='Pruebas Stanford'
+										name='title'
+										type='text'
+										id='title'
+										value={this.state.title}
+										onChange={this.handleInputChange}
+									/>{' '}
+									<br />
+									<label htmlFor='location'>Ubicación:</label>
+									<br></br>
+									<input
+										placeholder='Stanford University'
+										className='input'
+										name='location'
+										type='text'
+										id='location'
+										value={this.state.location}
+										onChange={this.handleInputChange}
+									/>
+									<br />
+									<label htmlFor='date'>Fecha:</label>
+									<br></br>
+									<input
+										className='input'
+										name='date'
+										type='date'
+										id='date'
+										value={this.state.date}
+										onChange={this.handleInputChange}
+									/>
+									<br />
+									<label htmlFor='requirements'>Requisitos:</label>
+									<br></br>
+									<textarea
+										className='input'
+										name='requirements'
+										id='requirements'
+										value={this.state.requirements}
+										onChange={this.handleInputChange}
+									/>
+									<br />
+									<button className='btn'>Publicar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		)
 	}
 }

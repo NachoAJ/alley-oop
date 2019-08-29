@@ -1,0 +1,32 @@
+.test-create {
+	background-image: url('./images/foto_cabecera2.png');
+	background-size: cover;
+	min-height: 80vh;
+	padding: 35px 0;
+}
+
+.test-create h2 {
+	font-size: 48px;
+	color: white;
+}
+
+.test-create .box {
+	background: white;
+	padding: 35px;
+}
+
+.test-create .input {
+	width: 100%;
+	border: 0;
+	background: #d4d3d3;
+	padding: 10px 15px;
+}
+
+.test-create .btn {
+	background: #dc2014;
+	border-radius: 1px;
+	padding: 10px 35px;
+	margin-top: 10px;
+	color: white;
+	border: 0;
+}

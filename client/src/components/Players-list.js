@@ -43,11 +43,23 @@ class PlayersList extends Component {
 	render() {
 		return (
 			<div className='container'>
-				<button onClick={this.sortListByGP}>GP</button>
-				<button onClick={this.sortListByPTS}>PTS</button>
-				<button onClick={this.sortListBy3PM}>3P%</button>
-				<button onClick={this.sortListByFgpct}>FG%</button>
-				<button onClick={this.sortListByFtpct}>FT%</button>
+				<div className='btn-list'>
+					<button className='order-btn' onClick={this.sortListByGP}>
+						PJ
+					</button>
+					<button className='order-btn' onClick={this.sortListByPTS}>
+						PTS
+					</button>
+					<button className='order-btn' onClick={this.sortListBy3PM}>
+						3P%
+					</button>
+					<button className='order-btn' onClick={this.sortListByFgpct}>
+						TC%
+					</button>
+					<button className='order-btn' onClick={this.sortListByFtpct}>
+						TL%
+					</button>
+				</div>
 				{this.state.players.map(elm => (
 					<div className='player-box' key={elm._id}>
 						<div className='container'>

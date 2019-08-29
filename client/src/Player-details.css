@@ -1,3 +1,7 @@
+.player-details {
+	padding-bottom: 40px;
+}
+
 .player-details header {
 	margin: 50px 0;
 	background: white;
@@ -53,4 +57,19 @@
 .player-details .secondary-videos {
 	max-height: 480px;
 	overflow: scroll;
+}
+
+.modal-input {
+	width: 100%;
+	border: 0;
+	background: #d4d3d3;
+	padding: 10px 15px;
+}
+
+.btn-modal {
+	color: white;
+	padding: 11px 20px;
+	border: 0px;
+	border-radius: 1px;
+	background-color: #dc2014;
 }

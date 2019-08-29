@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AuthServices from '../services/auth.services'
+import '../Login.css'
 
 class Login extends Component {
 	constructor(props) {
@@ -34,14 +35,41 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div className='container'>
-				<h1>Inicio de sesión de usuario</h1>
-				<form onSubmit={this.handleFormSubmit}>
-					Usuario: <input name='username' type='text' value={this.state.username} onChange={this.handleInputChange} /> <br />
-					Contraseña: <input name='password' type='password' value={this.state.password} onChange={this.handleInputChange} />{' '}
-					<br />
-					<input type='submit' value='Iniciar sesión' />
-				</form>
+			<div className='login'>
+				<div className='container'>
+					<div className='row align-items-center'>
+						<div className='col-md-8'>
+							<h2>Inicia sesión y encuentra el jugador que necesitas</h2>
+						</div>
+						<div className='col-md-4'>
+							<div className='box'>
+								<h3>Inicio de sesión de usuario</h3>
+								<form onSubmit={this.handleFormSubmit}>
+									Nombre:{' '}
+									<input
+										placeholder='Lebron James'
+										className='input'
+										name='username'
+										type='text'
+										value={this.state.username}
+										onChange={this.handleInputChange}
+									/>{' '}
+									<br />
+									Contraseña:{' '}
+									<input
+										className='input'
+										name='password'
+										type='password'
+										value={this.state.password}
+										onChange={this.handleInputChange}
+									/>{' '}
+									<br />
+									<button className='btn'>Iniciar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		)
 	}

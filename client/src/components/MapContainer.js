@@ -10,7 +10,7 @@ class MapContainer extends Component {
 	render() {
 		return (
 			<div>
-				<Map center={{ lat: this.props.lat, lng: this.props.lng }} height='300px' zoom={15} />
+				<Map center={{ lat: this.props.lat, lng: this.props.lng }} height='195.5px' zoom={15} />
 			</div>
 		)
 	}

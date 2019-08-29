@@ -112,11 +112,22 @@ class Player extends Component {
 							<Modal.Body>
 								<form onSubmit={this.handleEmail}>
 									<label htmlFor='subject'>Asunto:</label>
-									<input type='text' name='subject' id='subject' onChange={this.handleInputChange}></input>
+									<input
+										className='modal-input'
+										type='text'
+										name='subject'
+										id='subject'
+										onChange={this.handleInputChange}
+									></input>
 									<br></br>
 									<label htmlFor='message'>Mensaje:</label>
-									<textarea name='message' id='message' onChange={this.handleInputChange}></textarea>
-									<button>Enviar</button>
+									<textarea className='modal-input' name='message' id='message' onChange={this.handleInputChange}></textarea>
+									<small>
+										Al enviar aceptas la <b>política de protección de datos</b> de la aplicación y haberte leído los
+										<b> términos y condiciones.</b>
+									</small>
+									<br></br>
+									<button className='btn-modal'>Enviar</button>
 								</form>
 							</Modal.Body>
 						</div>
