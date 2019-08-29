@@ -25,7 +25,6 @@ class TestCreate extends Component {
 		e.preventDefault()
 		const { title, location, date, requirements } = this.state
 		const id = this.props.user.data._id
-
 		this.userServices
 			.getLocation(location)
 			.then(response => {
@@ -33,8 +32,6 @@ class TestCreate extends Component {
 				this.userServices
 					.addTest({ title, location, date, requirements, id, latlng })
 					.then(x => {
-						// console.log(x.data)
-						// this.props.updateLoggedInUser(x.data)
 						this.setState({
 							title: '',
 							location: '',
@@ -46,19 +43,6 @@ class TestCreate extends Component {
 					.catch(err => console.log(err.response.data.message))
 			})
 			.catch(err => console.log('Ha habido un error', err))
-
-		this.userServices
-			.addTest({ title, location, date, requirements, id })
-			.then(x => {
-				this.setState({
-					title: '',
-					location: '',
-					date: '',
-					requirements: ''
-				})
-				this.props.history.push('/test')
-			})
-			.catch(err => console.log(err.response.data.message))
 	}
 
 	render() {

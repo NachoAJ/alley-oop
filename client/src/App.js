@@ -20,7 +20,7 @@ import Footer from './components/Footer'
 class App extends Component {
 	constructor() {
 		super()
-		this.state = { loggedInUser: null, players: [], playersInfo: [] }
+		this.state = { loggedInUser: null, players: [], playersInfo: [], tests: [] }
 		this.authServices = new AuthServices()
 		this.services = new UserServices()
 	}
@@ -104,12 +104,21 @@ class App extends Component {
 							/>
 						)}
 					/>
-					<Route path='/test' exact render={() => <TestList user={this.state.loggedInUser} updateState={this.updateState} />} />
+					<Route
+						path='/test'
+						exact
+						render={() => <TestList getTests={this.getTests} user={this.state.loggedInUser} tests={this.state.tests} />}
+					/>
 					<Route
 						path='/test/create'
 						exact
 						render={match => (
-							<TestCreate {...match} user={this.state.loggedInUser} updateLoggedInUser={this.updateLoggedInUser} />
+							<TestCreate
+								{...match}
+								getTest={this.getTests}
+								user={this.state.loggedInUser}
+								updateLoggedInUser={this.updateLoggedInUser}
+							/>
 						)}
 					/>
 				</Switch>

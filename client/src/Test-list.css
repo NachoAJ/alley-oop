@@ -6,6 +6,10 @@
 	text-decoration: none !important;
 }
 
+.test-list {
+	min-height: 80vh;
+}
+
 .test-list .delete-btn {
 	background: #dc2014;
 	padding: 10px 35px;

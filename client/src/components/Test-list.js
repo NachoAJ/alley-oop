@@ -14,16 +14,15 @@ class TestList extends Component {
 	}
 
 	componentDidMount() {
-		console.log('Soy el component did mount')
-		this.getTests()
+		this.props.getTests()
 	}
 
-	getTests = () => {
-		this.services
-			.getTestById(this.props.user.data._id)
-			.then(response => this.setState({ tests: response.data }))
-			.catch(err => console.log(err))
-	}
+	// getTests = () => {
+	// 	this.services
+	// 		.getTestById(this.props.user.data._id)
+	// 		.then(response => this.setState({ tests: response.data }))
+	// 		.catch(err => console.log(err))
+	// }
 
 	render() {
 		console.log('Soy el render')
@@ -37,8 +36,8 @@ class TestList extends Component {
 							</Link>
 						</div>
 						<h3>Pruebas de selección</h3>
-						{this.state.tests &&
-							this.state.tests.map((elm, idx) => {
+						{this.props.tests &&
+							this.props.tests.map((elm, idx) => {
 								if (elm.latlng) {
 									return (
 										<div className='text-box'>
@@ -58,9 +57,7 @@ class TestList extends Component {
 														<p>Requisitos: {elm.requirements}</p>
 													</div>
 													<div className='col-md-4'>
-														<button className='delete-btn' onClick={this.getTests}>
-															Eliminar
-														</button>
+														<button className='delete-btn'>Eliminar</button>
 													</div>
 												</div>
 											</div>
