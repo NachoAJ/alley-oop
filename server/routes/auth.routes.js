@@ -57,6 +57,7 @@ authRoutes.post('/signup', (req, res, next) => {
 
 				req.login(newUser, err => {
 					if (err) {
+						console.log(err)
 						res.status(500).json({ message: 'Login after signup went bad.' })
 						return
 					}
